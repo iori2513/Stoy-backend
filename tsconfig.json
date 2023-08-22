@@ -1,12 +1,14 @@
 {
-  "include": [
-    "src"
-  ],
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "outDir": "dist",
+    "baseUrl": "src",
+    "paths": {
+      "~/*": [
+        "./*"
+      ]
+    },
     "noImplicitReturns": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
@@ -15,5 +17,8 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true
-  }
+  },
+  "include": [
+    "./src"
+  ]
 }
