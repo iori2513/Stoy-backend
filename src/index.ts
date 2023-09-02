@@ -2,12 +2,13 @@ import express from 'express'
 import type { Express, Request, Response } from 'express'
 
 const app: Express = express()
-const port = 3002
+const port = 3444
 
 app.use(express.json())
-const paths: string[] = ['/auth/register']
+const paths: string[] = ['/auth']
 
 for (const path of paths) {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   app.use(path, require(`./controllers${path}.ts`))
 }
 

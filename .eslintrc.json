@@ -43,6 +43,7 @@
         "yoda": "error",
         "no-shadow": "error",
         "no-dupe-args": "error",
-        "no-unreachable": "error"
+        "no-unreachable": "error",
+        "@typescript-eslint/no-explicit-any": 0
     }
 }
