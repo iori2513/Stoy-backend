@@ -32,36 +32,37 @@ export default class UtilGeneral {
     return bearer[1]
   }
 
-  public static generateToken = (user: User): string | null => {
-    let result: string | null = null
-    jwt.sign(
-      user,
-      UtilConfig.jwtPrivateKey,
-      {
+  public static generateToken = async (user: User): Promise<string | null> => {
+    try {
+      const token = jwt.sign(user, UtilConfig.jwtPrivateKey, {
         algorithm: 'RS256',
         expiresIn: '1d'
-      },
-      (error, encoded) => {
-        if (!error && encoded) {
-          result = encoded
-        }
-      }
-    )
-    return result
+      })
+      return token
+    } catch (error) {
+      console.log(error)
+      return null
+    }
   }
 
-  public static getUserFromToken = (token: string): User | null => {
-    let result: User | null = null
-    jwt.verify(token, UtilConfig.jwtPublicKey, (error, decoded) => {
-      if (!error && decoded) {
-        const param: User = decoded as {
-          id: string
-          email: string
-          name: string
-        }
-        result = { id: param.id, email: param.email, name: param.name }
+  public static getUserFromToken = async (
+    token: string
+  ): Promise<User | null> => {
+    try {
+      const result = jwt.verify(token, UtilConfig.jwtPublicKey) as {
+        id: string
+        name: string
+        email: string
       }
-    })
-    return result
+      const user: User = {
+        id: result.id,
+        name: result.name,
+        email: result.email
+      }
+      return user
+    } catch (error) {
+      console.log(error)
+      return null
+    }
   }
 }

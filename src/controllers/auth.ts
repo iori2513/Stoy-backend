@@ -72,7 +72,7 @@ router.post('/login', async (req: Request, res: Response) => {
     name: user.name,
     email: user.email
   }
-  const token = UtilGeneral.generateToken(userData)
+  const token = await UtilGeneral.generateToken(userData)
   if (!token) {
     return UtilGeneral.sendResponseError(res, 'token作成失敗')
   }
@@ -84,7 +84,7 @@ router.get('/user', async (req: Request, res: Response) => {
   if (token === null) {
     return UtilGeneral.sendResponseError(res, 'token error')
   }
-  const user = UtilGeneral.getUserFromToken(token)
+  const user = await UtilGeneral.getUserFromToken(token)
   if (!user) {
     return UtilGeneral.sendResponseError(res, '有効なトークンではありません')
   }
