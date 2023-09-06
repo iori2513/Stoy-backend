@@ -4,7 +4,7 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "npx nodemon --watch 'src/**/*.ts' --exec ts-node -r tsconfig-paths/register src/index.ts",
-    "start": "npx nodemon --exec ts-node src/index.ts"
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "iori",
