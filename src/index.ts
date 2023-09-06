@@ -3,7 +3,7 @@ import type { Express, Request, Response } from 'express'
 import UtilConfig from '@src/utils/UtilConfig'
 
 const app: Express = express()
-const port = UtilConfig.portNumber
+const port = UtilConfig.portNumber || 3444
 
 app.use(express.json())
 const paths: string[] = ['/auth']
