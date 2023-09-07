@@ -1,10 +1,10 @@
 import './fixTsPath'
 import express from 'express'
 import type { Express, Request, Response } from 'express'
-import UtilConfig from '@src/utils/UtilConfig'
+import * as process from 'process'
 
 const app: Express = express()
-const port = UtilConfig.portNumber || 3444
+const port = process.env.PORT || 3444
 
 app.use(express.json())
 const paths: string[] = ['/auth']
