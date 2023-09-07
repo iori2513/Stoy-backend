@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-require("./fixTsPaths");
+require("./fixTsPath");
 var express_1 = __importDefault(require("express"));
 var UtilConfig_1 = __importDefault(require("@src/utils/UtilConfig"));
 var app = (0, express_1.default)();

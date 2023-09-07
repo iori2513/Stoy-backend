@@ -1,4 +1,4 @@
-import './fixTsPaths'
+import './fixTsPath'
 import express from 'express'
 import type { Express, Request, Response } from 'express'
 import UtilConfig from '@src/utils/UtilConfig'
