@@ -2,10 +2,12 @@ import { config } from 'dotenv'
 import * as process from 'process'
 import path from 'path'
 
-config({
-  path: path.join(__dirname, '../config/.env'),
-  debug: true
-})
+if (!process.env.STOY_ENV_NAME) {
+  config({
+    path: path.join(__dirname, '../config/.env'),
+    debug: true
+  })
+}
 
 export default class UtilConfig {
   public static portNumber = Number(process.env.PORT_NUMBER)
