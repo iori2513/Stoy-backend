@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+require("./fixTsPaths");
 var express_1 = __importDefault(require("express"));
 var UtilConfig_1 = __importDefault(require("@src/utils/UtilConfig"));
 var app = (0, express_1.default)();
@@ -12,7 +13,7 @@ var paths = ['/auth'];
 for (var _i = 0, paths_1 = paths; _i < paths_1.length; _i++) {
     var path = paths_1[_i];
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    app.use(path, require("./controllers".concat(path, ".ts")));
+    app.use(path, require("./controllers".concat(path)));
 }
 app.get('/', function (req, res) {
     return res.send('no path');

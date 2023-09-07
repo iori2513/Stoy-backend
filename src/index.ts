@@ -1,3 +1,4 @@
+import './fixTsPaths'
 import express from 'express'
 import type { Express, Request, Response } from 'express'
 import UtilConfig from '@src/utils/UtilConfig'
@@ -10,7 +11,7 @@ const paths: string[] = ['/auth']
 
 for (const path of paths) {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  app.use(path, require(`./controllers${path}.ts`))
+  app.use(path, require(`./controllers${path}`))
 }
 
 app.get('/', (req: Request, res: Response) => {
