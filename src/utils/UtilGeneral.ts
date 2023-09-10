@@ -6,10 +6,11 @@ import * as jwt from 'jsonwebtoken'
 export default class UtilGeneral {
   public static dbConnection = async () => {
     return mysql.createConnection({
-      host: 'localhost',
+      host: UtilConfig.dbHost,
       user: UtilConfig.dbUsername,
       password: UtilConfig.dbPassword,
-      database: UtilConfig.dbName
+      database: UtilConfig.dbName,
+      port: UtilConfig.dbPort
     })
   }
 

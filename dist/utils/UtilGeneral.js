@@ -73,10 +73,11 @@ var UtilGeneral = /** @class */ (function () {
     UtilGeneral.dbConnection = function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(_a, function (_b) {
             return [2 /*return*/, mysql.createConnection({
-                    host: 'localhost',
+                    host: UtilConfig_1.default.dbHost,
                     user: UtilConfig_1.default.dbUsername,
                     password: UtilConfig_1.default.dbPassword,
-                    database: UtilConfig_1.default.dbName
+                    database: UtilConfig_1.default.dbName,
+                    port: UtilConfig_1.default.dbPort
                 })];
         });
     }); };

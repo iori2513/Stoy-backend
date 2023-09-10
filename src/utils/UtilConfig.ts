@@ -11,10 +11,11 @@ if (process.env.STOY_ENV_NAME !== 'prod') {
 }
 
 export default class UtilConfig {
-  public static portNumber = Number(process.env.PORT_NUMBER)
   public static dbPassword = process.env.DB_PASSWORD ?? ''
   public static dbUsername = process.env.DB_USERNAME ?? ''
   public static dbName = process.env.DB_NAME ?? ''
+  public static dbPort: number = Number(process.env.DB_PORT)
+  public static dbHost: string = process.env.DB_HOST ?? ''
 
   public static jwtPrivateKey = Buffer.from(
     process.env.JWT_PRIVATE_KEY?.replace(/\\n/g, '\n') ?? ''

@@ -39,13 +39,14 @@ if (process.env.STOY_ENV_NAME !== 'prod') {
 var UtilConfig = /** @class */ (function () {
     function UtilConfig() {
     }
-    var _a, _b, _c, _d, _e, _f, _g;
-    UtilConfig.portNumber = Number(process.env.PORT_NUMBER);
+    var _a, _b, _c, _d, _e, _f, _g, _h;
     UtilConfig.dbPassword = (_a = process.env.DB_PASSWORD) !== null && _a !== void 0 ? _a : '';
     UtilConfig.dbUsername = (_b = process.env.DB_USERNAME) !== null && _b !== void 0 ? _b : '';
     UtilConfig.dbName = (_c = process.env.DB_NAME) !== null && _c !== void 0 ? _c : '';
-    UtilConfig.jwtPrivateKey = Buffer.from((_e = (_d = process.env.JWT_PRIVATE_KEY) === null || _d === void 0 ? void 0 : _d.replace(/\\n/g, '\n')) !== null && _e !== void 0 ? _e : '');
-    UtilConfig.jwtPublicKey = Buffer.from((_g = (_f = process.env.JWT_PUBLIC_KEY) === null || _f === void 0 ? void 0 : _f.replace(/\\n/g, '\n')) !== null && _g !== void 0 ? _g : '');
+    UtilConfig.dbPort = Number(process.env.DB_PORT);
+    UtilConfig.dbHost = (_d = process.env.DB_HOST) !== null && _d !== void 0 ? _d : '';
+    UtilConfig.jwtPrivateKey = Buffer.from((_f = (_e = process.env.JWT_PRIVATE_KEY) === null || _e === void 0 ? void 0 : _e.replace(/\\n/g, '\n')) !== null && _f !== void 0 ? _f : '');
+    UtilConfig.jwtPublicKey = Buffer.from((_h = (_g = process.env.JWT_PUBLIC_KEY) === null || _g === void 0 ? void 0 : _g.replace(/\\n/g, '\n')) !== null && _h !== void 0 ? _h : '');
     return UtilConfig;
 }());
 exports.default = UtilConfig;
