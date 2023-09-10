@@ -12,6 +12,7 @@ export default class UtilGeneral {
       database: UtilConfig.dbName
     })
   }
+
   public static sendResponseError = (res: Response, errorMessage: string) => {
     return res.send({ status: 'error', detail: errorMessage })
   }

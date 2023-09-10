@@ -16,6 +16,7 @@
         "@typescript-eslint",
         "prettier"
     ],
+    "ignorePatterns": ["dist/"],
     "rules": {
         "prettier/prettier": [
             "error",
