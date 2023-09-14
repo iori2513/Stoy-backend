@@ -2,7 +2,6 @@ import { config } from 'dotenv'
 import * as process from 'process'
 import path from 'path'
 
-console.log('env', process.env.STOY_ENV_NAME)
 if (process.env.STOY_ENV_NAME !== 'prod') {
   config({
     path: path.join(__dirname, '../config/.env'),

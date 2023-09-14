@@ -8,7 +8,7 @@ const router = express.Router()
 const saltRounds = 10
 
 router.post('/register', async (req: Request, res: Response) => {
-  const idLength = 10
+  const idLength = 20
   const idSource = 'abcdefghijklmnopqrstuvwxyz0123456789'
   let id = ''
   for (let i = 0; i < idLength; i++)
