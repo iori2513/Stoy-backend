@@ -31,21 +31,21 @@ router.post('/register', async (req: Request, res: Response) => {
   return connection.end()
 })
 
-router.delete('/delete/:id', async (req: Request, res: Response) => {
-  const id = req.params.id
-  const connection = await UtilGeneral.dbConnection()
-  await connection.query(
-    `DELETE FROM users WHERE id = ${id}`,
-    (error: string) => {
-      if (error) {
-        return UtilGeneral.sendResponseError(res, error)
-      } else {
-        return UtilGeneral.sendResponseSuccess(res)
-      }
-    }
-  )
-  return connection.end()
-})
+// router.delete('/delete/:id', async (req: Request, res: Response) => {
+//   const id = req.params.id
+//   const connection = await UtilGeneral.dbConnection()
+//   await connection.query(
+//     `DELETE FROM users WHERE id = ${id}`,
+//     (error: string) => {
+//       if (error) {
+//         return UtilGeneral.sendResponseError(res, error)
+//       } else {
+//         return UtilGeneral.sendResponseSuccess(res)
+//       }
+//     }
+//   )
+//   return connection.end()
+// })
 
 router.post('/login', async (req: Request, res: Response) => {
   const params: { email: string; password: string } = req.body
