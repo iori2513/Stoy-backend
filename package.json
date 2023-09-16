@@ -4,6 +4,7 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "tsc-watch --onSuccess 'npx nodemon --watch 'src/**/*.ts' --exec ts-node -r tsconfig-paths/register src/index.ts'",
+    "build": "tsc",
     "start": "node dist/index.js",
     "deploy": "git push heroku main"
   },

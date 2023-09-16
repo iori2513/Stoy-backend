@@ -162,3 +162,4 @@ out
 # End of https://www.toptal.com/developers/gitignore/api/node,yarn,dotenv
 
 .idea
+dist/**/*.js
