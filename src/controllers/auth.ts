@@ -19,7 +19,7 @@ router.post('/register', async (req: Request, res: Response) => {
     .replace('/', '-')
   const connection = await UtilGeneral.dbConnection()
   await connection.query(
-    `INSERT INTO users VALUES ("${id}", "${param.name}", "${param.email}", "${hashedPassword}")`,
+    `INSERT INTO users VALUES ("${id}", "${param.username}", "${param.email}", "${hashedPassword}")`,
     (error: string) => {
       if (error) {
         return UtilGeneral.sendResponseError(res, error)
