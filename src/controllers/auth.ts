@@ -20,32 +20,16 @@ router.post('/register', async (req: Request, res: Response) => {
   const connection = await UtilGeneral.dbConnection()
   await connection.query(
     `INSERT INTO users VALUES ("${id}", "${param.username}", "${param.email}", "${hashedPassword}")`,
-    (error: string) => {
+    (error: any, val: any) => {
       if (error) {
         return UtilGeneral.sendResponseError(res, error)
       } else {
-        return UtilGeneral.sendResponseSuccess(res)
+        return UtilGeneral.sendResponseSuccess(res, { userId: id })
       }
     }
   )
   return connection.end()
 })
-
-// router.delete('/delete/:id', async (req: Request, res: Response) => {
-//   const id = req.params.id
-//   const connection = await UtilGeneral.dbConnection()
-//   await connection.query(
-//     `DELETE FROM users WHERE id = ${id}`,
-//     (error: string) => {
-//       if (error) {
-//         return UtilGeneral.sendResponseError(res, error)
-//       } else {
-//         return UtilGeneral.sendResponseSuccess(res)
-//       }
-//     }
-//   )
-//   return connection.end()
-// })
 
 router.post('/login', async (req: Request, res: Response) => {
   const params: { email: string; password: string } = req.body
