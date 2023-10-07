@@ -15,7 +15,7 @@ export default class UtilGeneral {
   }
 
   public static sendResponseError = (res: Response, errorMessage: string) => {
-    return res.send({ status: 'error', detail: errorMessage })
+    return res.send({ status: 'error', errorMessage: errorMessage })
   }
 
   public static sendResponseSuccess = (res: Response, result?: any) => {
