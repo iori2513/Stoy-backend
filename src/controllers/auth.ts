@@ -42,8 +42,12 @@ router.post('/login', async (req: Request, res: Response) => {
   if (!response || !response.length) {
     return UtilGeneral.sendResponseError(res, 'no user')
   }
-  const user: { id: string; name: string; email: string; password: string } =
-    response[0]
+  const user: {
+    id: string
+    username: string
+    email: string
+    password: string
+  } = response[0]
   const match: boolean = await bcrypt.compare(
     params.password,
     user.password.replace('-', '/')
@@ -53,7 +57,7 @@ router.post('/login', async (req: Request, res: Response) => {
   }
   const userData: User = {
     id: user.id,
-    name: user.name,
+    name: user.username,
     email: user.email
   }
   const token = await UtilGeneral.generateToken(userData)
