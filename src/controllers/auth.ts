@@ -72,7 +72,7 @@ router.get('/user', async (req: Request, res: Response) => {
   if (!user) {
     return UtilGeneral.sendResponseError(res, '有効なトークンではありません')
   }
-  return UtilGeneral.sendResponseSuccess(res, user)
+  return UtilGeneral.sendResponseSuccess(res, { user })
 })
 
 module.exports = router
