@@ -63,7 +63,7 @@ router.post('/login', async (req: Request, res: Response) => {
   return UtilGeneral.sendResponseSuccess(res, { token })
 })
 
-router.post('/user', async (req: Request, res: Response) => {
+router.get('/user', async (req: Request, res: Response) => {
   const token: string | null = UtilGeneral.getTokenFromRequest(req)
   if (token === null) {
     return UtilGeneral.sendResponseError(res, 'token error')
