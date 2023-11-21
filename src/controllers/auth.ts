@@ -20,15 +20,16 @@ router.post('/register', async (req: Request, res: Response) => {
   const connection = await UtilGeneral.dbConnection()
   await connection.query(
     `INSERT INTO users VALUES ("${id}", "${param.username}", "${param.email}", "${hashedPassword}")`,
-    (error: any, val: any) => {
+    (error: any) => {
       if (error) {
-        return UtilGeneral.sendResponseError(res, error)
+        UtilGeneral.sendResponseError(res, error)
       } else {
-        return UtilGeneral.sendResponseSuccess(res, { userId: id })
+        UtilGeneral.sendResponseSuccess(res, { userId: id })
       }
+      return connection.end()
     }
   )
-  return connection.end()
+  return
 })
 
 router.post('/login', async (req: Request, res: Response) => {

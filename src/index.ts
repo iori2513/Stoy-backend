@@ -7,7 +7,7 @@ const app: Express = express()
 const port = process.env.PORT || 3444
 
 app.use(express.json())
-const paths: string[] = ['/auth']
+const paths: string[] = ['/auth', '/bodyData']
 
 for (const path of paths) {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
